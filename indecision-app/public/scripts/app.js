@@ -1,4 +1,6 @@
-'use strict';
+"use strict";
 
-var nameVar = 'Jing';
-console.log('nameVar', nameVar);
+var square = function square(x) {
+    return x * x;
+};
+console.log(square(8));
