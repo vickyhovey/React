@@ -15,16 +15,36 @@ var user = {
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 
-        var cityMessages = this.cities.map(function (city) {
+        return this.cities.map(function (city) {
             return _this.name + ' has lived in ' + city;
         });
-        return cityMessages;
-        //const that =this;
-        // console.log(this.name);
-        // console.log(this.cities);
-        // this.cities.forEach((city) => {
-        //     console.log(this.name + ' has lived in ' + city);
-        // });
+    }
+
+    //const that =this;
+    // console.log(this.name);
+    // console.log(this.cities);
+    // this.cities.forEach((city) => {
+    //     console.log(this.name + ' has lived in ' + city);
+    // });
+
+};
+
+console.log(user.printPlacesLived());
+
+// Challenge area
+
+var multiplier = {
+    // numbers - array of numbers
+    // multiplyBy - single
+    // multiply - return a new array where the number have been multiplied
+    numbers: [10, 20, 30],
+    multiplyBy: 3,
+    mutiply: function mutiply() {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
     }
 };
-console.log(user.printPlacesLived());
+console.log(multiplier.mutiply());
