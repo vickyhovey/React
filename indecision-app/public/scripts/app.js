@@ -1,50 +1,122 @@
 'use strict';
 
-// argument object - no long bound with arrow functions
+console.log("App.js is running!");
+// create app object title/subtitle
+//use title/subtitle in the template
+//render template
 
-var add = function add(a, b) {
-    //console.log(arguments);
-    return a + b;
+//if statements
+//ternary operators
+//logical and operator
+
+//only render the subtitle (and p tag) if subtitile exist - logical and operator
+//render new p tag - if options.length >0 "Here are your options" "No options"
+
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['One', 'Two']
 };
-console.log(add(55, 1, 1001));
-// this keyword - no longer bound
-
+//JSX -JavaScript XML
+var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item one'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item two'
+        )
+    )
+);
 var user = {
-    name: 'Jing',
-    cities: ['NYC', 'DC', 'Dublin'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
 
-        return this.cities.map(function (city) {
-            return _this.name + ' has lived in ' + city;
-        });
-    }
-
-    //const that =this;
-    // console.log(this.name);
-    // console.log(this.cities);
-    // this.cities.forEach((city) => {
-    //     console.log(this.name + ' has lived in ' + city);
-    // });
-
+    age: 8,
+    location: 'New York'
 };
 
-console.log(user.printPlacesLived());
-
-// Challenge area
-
-var multiplier = {
-    // numbers - array of numbers
-    // multiplyBy - single
-    // multiply - return a new array where the number have been multiplied
-    numbers: [10, 20, 30],
-    multiplyBy: 3,
-    mutiply: function mutiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (number) {
-            return number * _this2.multiplyBy;
-        });
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
     }
+}
+// const templateTwo = (
+//     <div>
+//         <h1>{user.name ? user.name : 'Anonymous'}</h1>
+//         {(user.age && user.age >=18) && <p>Age: {user.age}</p>}
+//         {getLocation(user.location)}
+//     </div>
+// );
+var count = 0;
+var someId = 'myidhere';
+var addOne = function addOne() {
+    console.log('addOne');
 };
-console.log(multiplier.mutiply());
+var minusOne = function minusOne() {
+    console.log("minusOne");
+};
+var reset = function reset() {
+    console.log("reset");
+};
+
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Count: ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { onClick: addOne },
+        '+1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: minusOne },
+        '-1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: reset },
+        'reset'
+    )
+);
+console.log(templateTwo);
+//https://reactjs.org/docs/dom-elements.html
+
+// Challenge
+// Make button "-1" - setup minusOne function and register - log "minusOne"
+// Make reset button "reset" - setup reset function - log "reset"
+
+var appRoot = document.getElementById("app");
+ReactDOM.render(templateTwo, appRoot);
