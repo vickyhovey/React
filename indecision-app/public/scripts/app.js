@@ -77,41 +77,21 @@ function getLocation(location) {
 var count = 0;
 var someId = 'myidhere';
 var addOne = function addOne() {
-    console.log('addOne');
+    count++;
+    renderCounterApp();
+    //console.log('addOne', count);
 };
 var minusOne = function minusOne() {
-    console.log("minusOne");
+    count--;
+    renderCounterApp();
+    //console.log("minusOne");
 };
 var reset = function reset() {
-    console.log("reset");
+    count = 0;
+    renderCounterApp();
+    //console.log("reset");
 };
 
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Count: ',
-        count
-    ),
-    React.createElement(
-        'button',
-        { onClick: addOne },
-        '+1'
-    ),
-    React.createElement(
-        'button',
-        { onClick: minusOne },
-        '-1'
-    ),
-    React.createElement(
-        'button',
-        { onClick: reset },
-        'reset'
-    )
-);
-console.log(templateTwo);
 //https://reactjs.org/docs/dom-elements.html
 
 // Challenge
@@ -119,4 +99,35 @@ console.log(templateTwo);
 // Make reset button "reset" - setup reset function - log "reset"
 
 var appRoot = document.getElementById("app");
-ReactDOM.render(templateTwo, appRoot);
+
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count: ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: reset },
+            'reset'
+        )
+    );
+
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();

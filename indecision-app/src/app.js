@@ -48,24 +48,22 @@ function getLocation(location){
 let count = 0;
 const someId = 'myidhere';
 const addOne = () => {
-    console.log('addOne');
+    count++;
+    renderCounterApp();
+    //console.log('addOne', count);
 };
 const minusOne = () => {
-  console.log("minusOne");
+    count--;
+    renderCounterApp();
+    //console.log("minusOne");
 };
 const reset = () => {
-  console.log("reset");
+    count=0;
+    renderCounterApp();
+    //console.log("reset");
 };
 
-const templateTwo = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
-        <button onClick={minusOne}>-1</button>
-        <button onClick={reset}>reset</button>
-    </div>
-);
-console.log(templateTwo);
+
 //https://reactjs.org/docs/dom-elements.html
 
 // Challenge
@@ -73,4 +71,20 @@ console.log(templateTwo);
 // Make reset button "reset" - setup reset function - log "reset"
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(templateTwo, appRoot);
+
+
+const renderCounterApp = () => {
+    const templateTwo = (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={addOne}>+1</button>
+            <button onClick={minusOne}>-1</button>
+            <button onClick={reset}>reset</button>
+        </div>
+    );
+
+    ReactDOM.render(templateTwo, appRoot);
+
+};
+
+renderCounterApp();
