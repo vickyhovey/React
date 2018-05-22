@@ -9,6 +9,7 @@ const minusOne = () => {
     count--;
     renderCounterApp();
     //console.log("minusOne");
+};
 const reset = () => {
     count = 0;
     renderCounterApp();
