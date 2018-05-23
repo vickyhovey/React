@@ -35,6 +35,13 @@ var removeAll = function removeAll() {
     render();
 };
 
+var onMakeDecision = function onMakeDecision() {
+    // Math.random() generate random number between 0 and 1.
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNum];
+    alert(option);
+};
+
 var user = {
 
     age: 8,
@@ -84,9 +91,9 @@ var render = function render() {
             app.options.length > 0 ? "Here are your options" : "No options"
         ),
         React.createElement(
-            'p',
-            null,
-            app.options.length
+            'button',
+            { disabled: app.options.length == 0, onClick: onMakeDecision },
+            'What should I do?'
         ),
         React.createElement(
             'button',
