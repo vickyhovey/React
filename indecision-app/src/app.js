@@ -66,6 +66,7 @@ const render = () => {
         </p>
         <p>{app.options.length}</p>
         <button onClick={removeAll}>Remove All</button>
+
         {numbers.map(number => {
           return <p key={number}>Number: {number}</p>;
         })}
@@ -73,7 +74,7 @@ const render = () => {
         <ol>
           {/* map over app.options getting back an array of lis (set key and text) */
             app.options.map(option => {
-            return <p key={option}>Option: {option}</p>;
+            return <li key={option}>{option}</li>;
           })}
         </ol>
         <ol>

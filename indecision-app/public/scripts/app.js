@@ -107,9 +107,8 @@ var render = function render() {
             /* map over app.options getting back an array of lis (set key and text) */
             app.options.map(function (option) {
                 return React.createElement(
-                    'p',
+                    'li',
                     { key: option },
-                    'Option: ',
                     option
                 );
             })
