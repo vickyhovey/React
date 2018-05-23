@@ -62,6 +62,8 @@ function getLocation(location) {
 
 var appRoot = document.getElementById('app');
 
+var numbers = [55, 101, 1000];
+
 var render = function render() {
     var template = React.createElement(
         'div',
@@ -79,7 +81,7 @@ var render = function render() {
         React.createElement(
             'p',
             null,
-            app.options.length > 0 ? 'Here are your options' : 'No options'
+            app.options.length > 0 ? "Here are your options" : "No options"
         ),
         React.createElement(
             'p',
@@ -90,6 +92,27 @@ var render = function render() {
             'button',
             { onClick: removeAll },
             'Remove All'
+        ),
+        numbers.map(function (number) {
+            return React.createElement(
+                'p',
+                { key: number },
+                'Number: ',
+                number
+            );
+        }),
+        React.createElement(
+            'ol',
+            null,
+            /* map over app.options getting back an array of lis (set key and text) */
+            app.options.map(function (option) {
+                return React.createElement(
+                    'p',
+                    { key: option },
+                    'Option: ',
+                    option
+                );
+            })
         ),
         React.createElement(
             'ol',
