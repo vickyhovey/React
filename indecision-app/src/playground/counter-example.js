@@ -1,3 +1,27 @@
+// // VisibilityToggle - render, constructor, handleToggleVisibility
+// // visibility -> false
+
+// class VisibilityToggle extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.handleToggleVisibility = this.handleToggleVisibility(this);
+
+//     }
+//     handleToggleVisibility(prevVisibility) {
+
+
+//     }
+//     render() {
+//         return (
+//             <div>
+//             <button onClick = {this.handleToggleVisibility}>Show</button>
+//             </div>
+
+//         );
+
+//     }
+// }
+// ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));
 class Counter extends React.Component {
     constructor(props) {
         super(props);
