@@ -8,6 +8,9 @@
 // const getName = obj.getName.bind({ name: 'Jing'});
 
 // console.log(getName());
+
+
+// stateless functional component
 class IndecisionApp extends React.Component {
     constructor(props) { 
         super(props);
@@ -72,38 +75,64 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-class Header extends React.Component {
-    render() {
+
+const Header = (props) => {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <h2>{props.subtitle}</h2>
+        </div>
+    );
+};
+// class Header extends React.Component {
+//     render() {
         
+//         return (
+//             <div>
+//                 <h1>{this.props.title}</h1>
+//                 <h2>{this.props.subtitle}</h2>
+//             </div>
+//         );
+//     }
+// }
+const Action = (props) => {
+    
         return (
             <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.subtitle}</h2>
-            </div>
-        );
-    }
-}
 
-class Action extends React.Component {
-    // handlePick() {
-    //     alert('handlePick');
-    // }
-
-    render() {
-        return (
-            <div>
-            
-                <button 
-                onClick={this.props.handlePick}
-                disabled={!this.props.hasOptions}
+                <button
+                    onClick={props.handlePick}
+                    disabled={!props.hasOptions}
                 >
-                  What should I do?
+                    What should I do?
                 </button>
             </div>
         );
-    }
-}
+    };
+
+
+// class Action extends React.Component {
+//     // handlePick() {
+//     //     alert('handlePick');
+//     // }
+
+//     render() {
+//         return (
+//             <div>
+            
+//                 <button 
+//                 onClick={this.props.handlePick}
+//                 disabled={!this.props.hasOptions}
+//                 >
+//                   What should I do?
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 // Options -> Options component here
+
+
 class Options extends React.Component {
     // constructor(props) {
     //     super(props);
@@ -175,4 +204,13 @@ const jsx = (
     </div>
 );
 
+// const User =  (props) => {
+//     return (
+//         <div>
+//             <p>Name: {props.name}</p>
+//             <p>Age: {props.age}</p>
+//         </div>
+//     );
+
+// };
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
